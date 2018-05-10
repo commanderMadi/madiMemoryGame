@@ -1,5 +1,6 @@
 # Memory Game
- Developed by Ahmed Magdy as part of the Udacity Front-end nanodegree.
+ 
+ ### Developed by Ahmed Magdy as part of the Udacity Front-end nanodegree.
 
 ## Game Description
 - The game is simply a classic memory (matching) game that triggers your memory abilities to see if you can remember where you last saw a certain card within 16 cards. 
