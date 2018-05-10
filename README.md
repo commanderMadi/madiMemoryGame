@@ -8,11 +8,15 @@
 - The more moves you make, the less rating you get (represented by stars)
 - A timer on top right of the deck starts counting up with the very first click you make.
 
-##Game Instructions
+## Game Instructions
 - You start the game by clicking on "index.html", a page will automatically open in your default browser and a deck of cards will be drawn on it.
 - Use your mouse to flip cards.
 - If you felt lost or challenged, you can always restart the game by clicking on the "restart" icon on top right of the deck near the timer.
 - When you finish, you get your tasty chicken dinner. You can also restart the game by clicking the "restart" icon in the middle of the winning note that appears at the end.
 
+## Future Additions
 
-More features to come soon! (leaderboard, a wider grid with different symbols)
+- More symbols and a wider grid.
+- Leaderboards.
+
+## Copyright 2017 Ahmed Magdy.
