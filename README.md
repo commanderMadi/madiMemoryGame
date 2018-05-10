@@ -26,4 +26,4 @@
 - More symbols and a wider grid.
 - Leaderboards.
 
-## Copyright 2017 Ahmed Magdy.
+### Copyright 2017 Ahmed Magdy.
