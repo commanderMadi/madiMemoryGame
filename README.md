@@ -8,6 +8,12 @@
 - The more moves you make, the less rating you get (represented by stars)
 - A timer on top right of the deck starts counting up with the very first click you make.
 
+## Running the Game
+
+-You can run the game by either:
+ - Downloading it directly from this [link](https://github.com/commanderMadi/madiMemoryGame/archive/master.zip), unzip the folder and open index.html.
+ - Play it live directly without downloading by going to this [link](https://commandermadi.github.io/madiMemoryGame/)
+
 ## Game Instructions
 - You start the game by clicking on "index.html", a page will automatically open in your default browser and a deck of cards will be drawn on it.
 - Use your mouse to flip cards.
