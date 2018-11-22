@@ -45,7 +45,7 @@ class Game {
     this.hasStarted = false;
     this.timerCounter.innerHTML = "00:00:00";
     this.moves = 0;
-    this.movesCounter.innerHTML = this.moves;
+    this.movesCounter.innerHTML = `Moves: ${this.moves}`;
     this.stars = 3;
     this.listenForClicks();
   }
@@ -124,13 +124,28 @@ class Game {
       });
     });
   }
+  // To disable cards during comparison to prevent multiple card clicks.
+  disableClick() {
+    let allCards = document.querySelectorAll(".card");
+    for (let i = 0; i < allCards.length; i++) {
+      if (!allCards[i].classList.contains("match")) {
+        allCards[i].classList.add("disabled");
+      }
+    }
+  }
+  
+  // To enable cards after comparison
+  enableClick() {
+    let allCards = document.querySelectorAll(".card");
+    for (let i = 0; i < allCards.length; i++) {
+      if (!allCards[i].classList.contains("match")) {
+        allCards[i].classList.remove("disabled");
+      }
+    }
+  }
   //Comparison logic.
   compareCards() {
-    let allCards = document.querySelectorAll(".card");
-    for(let i = 0; i < allCards.length; i++) {
-      console.log(allCards[i]);
-      allCards[i].classList.add('disabled');
-    }
+    this.disableClick();
     if (this.opened[0].innerHTML === this.opened[1].innerHTML) {
       this.matchFound();
     } else {
@@ -141,7 +156,7 @@ class Game {
   updateState() {
     this.opened = [];
     this.moves++;
-    this.movesCounter.innerHTML = this.moves;
+    this.movesCounter.innerHTML = `Moves: ${this.moves}`;
     switch (this.moves) {
       case 10:
         this.stars--;
@@ -156,6 +171,7 @@ class Game {
   }
   //Handling match cases.
   matchFound() {
+    this.enableClick();
     this.opened[0].classList.remove("flipInY");
     this.opened[1].classList.remove("flipInY");
     this.opened[0].classList.add(
@@ -181,11 +197,7 @@ class Game {
     let that = this;
     let allCards = document.querySelectorAll(".card");
     setTimeout(function() {
-      for(let i = 0; i < allCards.length; i++) {
-        if(!allCards[i].classList.contains("match")) {
-        allCards[i].classList.remove('disabled');
-        }
-      }
+      that.enableClick();
       that.opened[0].classList.remove(
         "open",
         "animated",
