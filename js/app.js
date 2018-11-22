@@ -45,7 +45,7 @@ class Game {
     this.hasStarted = false;
     this.timerCounter.innerHTML = "00:00:00";
     this.moves = 0;
-    this.movesCounter.innerHTML = `Moves: ${this.moves}`;
+    this.movesCounter.innerHTML = `Moves made: ${this.moves}`;
     this.stars = 3;
     this.listenForClicks();
   }
@@ -156,7 +156,7 @@ class Game {
   updateState() {
     this.opened = [];
     this.moves++;
-    this.movesCounter.innerHTML = `Moves: ${this.moves}`;
+    this.movesCounter.innerHTML = `Moves made: ${this.moves}`;
     switch (this.moves) {
       case 10:
         this.stars--;
