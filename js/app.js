@@ -106,21 +106,19 @@ class Game {
   //Adding the classes required to flip the card.
   flipMe(card) {
     card.classList.add("open", "show", "flipInY", "disabled");
+    this.opened.push(card);
   }
   //Listening to user click on each card.
   listenForClicks() {
     let allCards = document.querySelectorAll(".card");
-    return [...allCards].map(card => {
+    [...allCards].map(card => {
       card.addEventListener("click", () => {
         if (!this.hasStarted) {
           this.hasStarted = true;
           this.listenToTimer();
         }
-
         this.flipMe(card);
-        this.opened.push(card);
-        if (this.opened.length === 2) {
-          card.classList.add("disabled");
+        if (this.opened.length > 1) {
           this.compareCards();
         }
       });
@@ -128,6 +126,11 @@ class Game {
   }
   //Comparison logic.
   compareCards() {
+    let allCards = document.querySelectorAll(".card");
+    for(let i = 0; i < allCards.length; i++) {
+      console.log(allCards[i]);
+      allCards[i].classList.add('disabled');
+    }
     if (this.opened[0].innerHTML === this.opened[1].innerHTML) {
       this.matchFound();
     } else {
@@ -136,6 +139,7 @@ class Game {
   }
   //Updating game state.
   updateState() {
+    this.opened = [];
     this.moves++;
     this.movesCounter.innerHTML = this.moves;
     switch (this.moves) {
@@ -149,7 +153,6 @@ class Game {
         this.starsCounter.innerHTML = `<li><i class="fa fa-star"></i></li>`;
         break;
     }
-    this.opened = [];
   }
   //Handling match cases.
   matchFound() {
@@ -176,7 +179,13 @@ class Game {
   //Handling mismatch cases.
   matchNotFound() {
     let that = this;
+    let allCards = document.querySelectorAll(".card");
     setTimeout(function() {
+      for(let i = 0; i < allCards.length; i++) {
+        if(!allCards[i].classList.contains("match")) {
+        allCards[i].classList.remove('disabled');
+        }
+      }
       that.opened[0].classList.remove(
         "open",
         "animated",
@@ -194,7 +203,7 @@ class Game {
         "disabled"
       );
       that.updateState();
-    }, 500);
+    }, 750);
   }
   //Checking if the game is already won.
   isWon() {
