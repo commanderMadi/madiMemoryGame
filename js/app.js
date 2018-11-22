@@ -256,6 +256,6 @@ class Game {
   }
 }
 //Creating a new timer and game instance and running the game.
-const mainTimer = new Timer();
-const game = new Game(mainTimer);
+const gameTimer = new Timer();
+const game = new Game(gameTimer);
 game.init();
